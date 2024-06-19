@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <label>
+    Username:
+    <input pInputText type="text" formControlName="username">
+  </label>
+  <label>
+    Password:
+    <input pInputText type="password" formControlName="password">
+  </label>
+  <p-button label="Login" type="submit"/>
+</form>

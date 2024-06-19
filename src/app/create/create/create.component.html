@@ -1,0 +1,31 @@
+<div class="form-container">
+  <form [formGroup]="createFormGroup"  (ngSubmit)="createProject()">
+    <div class="grid">
+      <label for="projectname">Name</label>
+      <input
+        pInputText
+        id="projectname"
+        formControlName="name"
+      />
+      <label for="type">Type</label>
+      <p-dropdown
+        id="type"
+        formControlName="type"
+        [options]="types"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="Select a Type"/>
+    </div>
+    <p-button label="Submit" type="submit"/>
+  </form>
+  <div *ngIf="project">
+    <h2>Project Details</h2>
+    <p>Name: {{ project.name }}</p>
+    <p>Type: {{ project.type }}</p>
+    <p>SCM URL: {{ project.scmUrl }}</p>
+    <p>CI URL: {{ project.ciUrl }}</p>
+  </div>
+  <div *ngIf="errorMessage">
+    <p>Error: {{ errorMessage }}</p>
+  </div>
+</div>
